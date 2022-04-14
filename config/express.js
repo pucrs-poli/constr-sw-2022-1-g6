@@ -1,14 +1,22 @@
 import express from 'express';
-import config from 'config';
+import { initKeycloak, refreshToken } from './keycloak-config.js';
+
+const keycloak = await initKeycloak();
 
 const app = express();
-
 app.use(express.json());
 
-app.get('/test', (request, response) =>
-  response.json({ ok: true }),
-);
+refreshToken()
 
-app.listen(config.get('server.port'), () => {
-  console.log(`Server started on port ${config.get('server.port')}!`);
+app.get('/users', async (request, response) => {
+  const users = await keycloak.users.find();
+  return response.json(users);
+})
+
+app.post('/users', async (request, response) => {
+  // TODO: REALIZAR A CRIAÇÃO DE UM USUÁRIO
+})
+
+app.listen(3000, () => {
+  console.log('Server started on port 3000!');
 })
