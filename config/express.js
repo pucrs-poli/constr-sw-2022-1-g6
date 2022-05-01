@@ -1,10 +1,37 @@
 import express from 'express';
+import 'dotenv/config';
 import { initKeycloak, _refreshToken } from './keycloak-config.js';
 
-let keycloak = await initKeycloak();
+let keycloak;
 
 const app = express();
 app.use(express.json());
+app.use((request, response, next) => {
+  const { originalUrl } = request;
+
+  if (!keycloak && originalUrl !== '/auth') {
+    return response.status(401).send({ message: 'You need to log in first' });
+  }
+
+  next();
+});
+
+app.post('/auth', async (request, response) => {
+  const { username, password } = request.body;
+
+  try {
+    keycloak = await initKeycloak({
+      grantType: 'password',
+      username,
+      password,
+      clientId: process.env.KEYCLOAK_CLIENT_ID,
+    });
+
+    return response.status(200).send();
+  } catch (error) {
+    return response.status(401).send({ message: error.message });
+  }
+});
 
 app.get('/users', async (request, response) => {
   try {

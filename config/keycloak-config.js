@@ -3,13 +3,6 @@ import 'dotenv/config';
 
 let kcAdminClient;
 
-const credentials = {
-  grantType: 'password',
-  username: process.env.KEYCLOAK_USERNAME,
-  password: process.env.KEYCLOAK_PASSWORD,
-  clientId: process.env.KEYCLOAK_CLIENT_ID,
-};
-
 async function initKeycloak(customCredentials) {
   kcAdminClient = new KcAdminClient.default({
     realmName: process.env.KEYCLOAK_REALM,
@@ -17,11 +10,11 @@ async function initKeycloak(customCredentials) {
   });
 
   try {
-    await kcAdminClient.auth(customCredentials || credentials);
+    await kcAdminClient.auth(customCredentials);
 
     return kcAdminClient;
   } catch (error) {
-    console.log(error)
+    throw new Error(error);
   }
 }
 
