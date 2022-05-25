@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DisciplinaResponse {
-    private Integer id;
+    private String id;
 
     private String codigo;
 

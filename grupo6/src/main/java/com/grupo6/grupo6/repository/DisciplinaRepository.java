@@ -6,7 +6,7 @@ import org.springframework.data.repository.Repository;
 
 import java.util.List;
 
-public interface DisciplinaRepository extends Repository<Disciplina, Integer> {
+public interface DisciplinaRepository extends Repository<Disciplina, String> {
     List<Disciplina> findAll();
     Disciplina save(Disciplina disciplina);
 }
