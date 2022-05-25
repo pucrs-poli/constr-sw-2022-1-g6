@@ -1,4 +1,7 @@
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   jpa:
     generate-ddl: 'true'
     database: POSTGRESQL
@@ -12,3 +15,4 @@ spring:
     password: postgres
   database:
     driverClassName: org.postgresql.Driver
+
