@@ -2,8 +2,8 @@ package com.grupo6.grupo6.controller;
 
 import com.grupo6.grupo6.controller.request.CurriculoRequest;
 import com.grupo6.grupo6.controller.response.CurriculoResponse;
-import com.grupo6.grupo6.service.curriculo.CreateService;
-import com.grupo6.grupo6.service.curriculo.FindAllService;
+import com.grupo6.grupo6.service.curriculo.CurriculoCreateService;
+import com.grupo6.grupo6.service.curriculo.CurriculoFindAllService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,20 +14,20 @@ import java.util.List;
 @RequestMapping("curriculos")
 public class CurriculoController {
     @Autowired
-    private FindAllService findAllService;
+    private CurriculoFindAllService curriculoFindAllService;
 
     @Autowired
-    private CreateService createService;
+    private CurriculoCreateService curriculoCreateService;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<CurriculoResponse> findAll() {
-        return findAllService.execute();
+        return curriculoFindAllService.execute();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public CurriculoResponse create(@RequestBody CurriculoRequest request) {
-        return createService.execute(request);
+        return curriculoCreateService.execute(request);
     }
 }

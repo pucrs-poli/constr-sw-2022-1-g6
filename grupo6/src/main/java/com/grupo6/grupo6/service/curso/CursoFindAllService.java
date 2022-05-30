@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class FindAllService {
+public class CursoFindAllService {
     @Autowired
     private CursoRepository cursoRepository;
 

@@ -17,4 +17,8 @@ public class Curriculo {
 
     @Column
     private String nome;
+
+    @ManyToOne
+    @JoinColumn(name="curso_id", nullable=false)
+    private Curso curso;
 }
