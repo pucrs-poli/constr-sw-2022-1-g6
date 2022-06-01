@@ -1,11 +1,8 @@
 import express from 'express';
 import 'dotenv/config';
-import { initKeycloak, _refreshToken } from './keycloak-config.js';
 import api from './axios.js';
 import bodyParser from 'body-parser';
 import url from 'url';
-
-let keycloak;
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -53,6 +50,12 @@ app.post('/login', async (request, response) => {
       `realms/${process.env.KEYCLOAK_REALM}/protocol/openid-connect/token`,
       params.toString(),
     );
+
+    // const { data: userProfile } = await api.get(
+    //   `admin/realms/${process.env.KEYCLOAK_REALM}/users?username=${username}`,
+    // );
+
+    // console.log(userProfile);
 
     const {
       token_type,
@@ -110,90 +113,7 @@ app.post('/login/refresh', async (request, response) => {
   return response.json(newCredentials);
 });
 
-app.get('/users', async (request, response) => {
-  try {
-    const { data } = await api.get(
-      `admin/realms/${process.env.KEYCLOAK_REALM}/users`,
-    );
-
-    return response.json(data);
-  } catch (error) {
-    const { data, status } = error.response;
-    return response.status(status).send(data);
-  }
-});
-
-app.get('/users/:id', async (request, response) => {
-  const { id } = request.params;
-
-  try {
-    const { data } = await api.get(
-      `admin/realms/${process.env.KEYCLOAK_REALM}/users/${id}`,
-    );
-
-    return response.json(data);
-  } catch (error) {
-    const { data, status } = error.response;
-    return response.status(status).send(data);
-  }
-});
-
-app.put('/users/:id', async (request, response) => {
-  try {
-    await keycloak.users.update({
-      id: request.params.id,
-    }, request.body);
-    return response.json().status(200);
-  } catch (error) {
-    if(error.response.status === 401) {
-      keycloak = await _refreshToken();
-
-      await keycloak.users.update({
-        id: request.params.id,
-      }, request.body);
-      return response.json().status(200);
-    }
-  }
-});
-
-app.patch('/users/:id', async (request, response) => {
-  try {
-    await keycloak.users.resetPassword({
-      id: request.params.id,
-      credential: request.body,
-    });
-    return response.json().status(200);
-  } catch (error) {
-    if(error.response.status === 401) {
-      keycloak = await _refreshToken();
-
-      await keycloak.users.resetPassword({
-        id: request.params.id,
-        credential: request.body,
-      });
-      return response.json().status(200);
-    }
-  }
-});
-
-app.delete('/users/:id', async (request, response) => {
-  try {
-    await keycloak.users.update({
-      id: request.params.id,
-    }, { enabled: false });
-    return response.json().status(200);
-  } catch (error) {
-    if(error.response.status === 401) {
-      keycloak = await _refreshToken();
-
-      await keycloak.users.update({
-        id: request.params.id,
-      }, { enabled: false });
-      return response.json().status(200);
-    }
-  }
-});
-
+// 
 app.post('/users', async (request, response) => {
   try {
     await api.post(
@@ -211,6 +131,89 @@ app.post('/users', async (request, response) => {
     );
 
     return response.status(201).json(data[0]);
+  } catch (error) {
+    const { data, status } = error.response;
+    return response.status(status).send(data);
+  }
+});
+
+// LISTAR USUÁRIOS
+app.get('/users', async (request, response) => {
+  try {
+    const { data } = await api.get(
+      `admin/realms/${process.env.KEYCLOAK_REALM}/users`,
+    );
+
+    return response.json(data);
+  } catch (error) {
+    const { data, status } = error.response;
+    return response.status(status).send(data);
+  }
+});
+
+// BUSCAR USUÁRIO PELO ID
+app.get('/users/:id', async (request, response) => {
+  const { id } = request.params;
+
+  try {
+    const { data } = await api.get(
+      `admin/realms/${process.env.KEYCLOAK_REALM}/users/${id}`,
+    );
+
+    return response.json(data);
+  } catch (error) {
+    const { data, status } = error.response;
+    return response.status(status).send(data);
+  }
+});
+
+
+// ATUALIZAR USUÁRIO
+app.put('/users/:id', async (request, response) => {
+  const { id } = request.params;
+
+  try {
+    await api.put(
+      `admin/realms/${process.env.KEYCLOAK_REALM}/users/${id}`,
+      request.body,
+    );
+
+    return response.status(204).send();
+  } catch (error) {
+    const { data, status } = error.response;
+    return response.status(status).send(data);
+  }
+});
+
+
+// RESETAR SENHA
+app.patch('/users/:id', async (request, response) => {
+  const { id } = request.params;
+
+  try {
+    await api.put(
+      `admin/realms/${process.env.KEYCLOAK_REALM}/users/${id}/reset-password`,
+      request.body,
+    );
+
+    return response.status(204).send();
+  } catch (error) {
+    const { data, status } = error.response;
+    return response.status(status).send(data);
+  }
+});
+
+// EXCLUSÃO LÓGICA DE USUÁRIO
+app.delete('/users/:id', async (request, response) => {
+  const { id } = request.params;
+
+  try {
+    await api.put(
+      `admin/realms/${process.env.KEYCLOAK_REALM}/users/${id}`,
+      { enabled: false },
+    );
+
+    return response.status(204).send();
   } catch (error) {
     const { data, status } = error.response;
     return response.status(status).send(data);
