@@ -6,19 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ecb1a0fe-7dc9-4b9c-8f82-fc44f0cadf5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/CurriculoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/CurriculoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/CurriculoController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/CursoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/CursoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/DisciplinaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/DisciplinaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/request/CurriculoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/request/CurriculoRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/request/CursoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/request/CursoRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/domain/Curriculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/domain/Curriculo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/domain/Curso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/domain/Curso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curriculo/CreateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curriculo/CurriculoCreateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curriculo/FindAllService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curriculo/CurriculoFindAllService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curso/CreateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curso/CursoCreateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curso/FindAllService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curso/CursoFindAllService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/disciplina/CreateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/disciplina/DisciplinaCreateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/disciplina/FindAllService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/disciplina/DisciplinaFindAllService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/repository/CursoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/repository/CursoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curriculo/CurriculoCreateService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curriculo/CurriculoFindAllService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curriculo/CurriculoFindAllService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +188,20 @@
     &quot;spring.configuration.checksum&quot;: &quot;5bcc554f193a44440de1f2990928c977&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Grupo6Application">
+    <configuration name="Grupo6Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.grupo6.grupo6.Grupo6Application" />
+      <module name="grupo6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.grupo6.grupo6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Grupo6Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="grupo6" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.grupo6.grupo6.Grupo6Application" />
@@ -203,6 +209,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Grupo6Application" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -264,6 +275,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/config/ModelMapperConfig.java">

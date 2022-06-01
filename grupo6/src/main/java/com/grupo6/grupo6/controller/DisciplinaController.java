@@ -1,5 +1,6 @@
 package com.grupo6.grupo6.controller;
 
+import com.grupo6.grupo6.controller.request.CurriculoRequest;
 import com.grupo6.grupo6.controller.request.DisciplinaRequest;
 import com.grupo6.grupo6.controller.response.DisciplinaResponse;
 import com.grupo6.grupo6.service.disciplina.DisciplinaCreateService;
