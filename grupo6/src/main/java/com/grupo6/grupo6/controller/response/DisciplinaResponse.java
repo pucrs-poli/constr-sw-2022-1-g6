@@ -19,4 +19,6 @@ public class DisciplinaResponse {
     private String ementa;
 
     private Integer nivel;
+
+    private Boolean ativa;
 }

@@ -32,4 +32,7 @@ public class Disciplina {
 
     @Column
     private Integer nivel;
+
+    @Column
+    private Boolean ativa = true;
 }

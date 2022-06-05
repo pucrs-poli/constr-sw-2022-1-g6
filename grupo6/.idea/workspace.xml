@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecb1a0fe-7dc9-4b9c-8f82-fc44f0cadf5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/disciplina/DisciplinaDeleteById.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/disciplina/DisciplinaFindByIdService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/disciplina/DisciplinaUpdateByIdService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/CurriculoController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/CursoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/CursoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/DisciplinaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/DisciplinaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/repository/CursoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/repository/CursoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curriculo/CurriculoCreateService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curriculo/CurriculoFindAllService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/service/curriculo/CurriculoFindAllService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/response/DisciplinaResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/controller/response/DisciplinaResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/domain/Disciplina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/domain/Disciplina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/repository/DisciplinaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupo6/grupo6/repository/DisciplinaRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +55,9 @@
     <option name="height" value="690" />
   </component>
   <component name="ProjectId" id="29g3DhTmJAJlO4Q0CAGLthLZGQv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />

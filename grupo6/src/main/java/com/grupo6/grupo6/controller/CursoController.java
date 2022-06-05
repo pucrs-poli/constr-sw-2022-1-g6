@@ -49,7 +49,7 @@ public class CursoController {
 
     @GetMapping("{id}/curriculos")
     @ResponseStatus(HttpStatus.OK)
-    public List<CurriculoResponse> create(@PathVariable String id) {
+    public List<CurriculoResponse> listAll(@PathVariable String id) {
         return curriculoFindAllService.execute(id);
     }
 }
