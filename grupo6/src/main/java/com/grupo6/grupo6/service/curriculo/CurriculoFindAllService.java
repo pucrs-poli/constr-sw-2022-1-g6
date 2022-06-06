@@ -25,7 +25,7 @@ public class CurriculoFindAllService {
     private CurriculoResponseMapper curriculoResponseMapper;
 
     public List<CurriculoResponse> execute(String idCurso) {
-     Optional<Curso> cursoExistente = cursoRepository.findById(idCurso);
+     Optional<Curso> cursoExistente = cursoRepository.getOne(idCurso);
 
      Curso curso = cursoExistente.get();
 

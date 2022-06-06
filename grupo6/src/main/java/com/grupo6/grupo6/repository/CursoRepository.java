@@ -11,5 +11,5 @@ public interface CursoRepository extends Repository<Curso, String> {
     List<Curso> findAll();
     Curso save(Curso curso);
 
-    Optional<Curso> findById(String idCurso);
+    Optional<Curso> getOne(String idCurso);
 }

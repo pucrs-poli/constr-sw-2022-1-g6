@@ -29,7 +29,7 @@ public class CurriculoCreateService {
 
     public CurriculoResponse execute(CurriculoRequest request, String idCurso) {
         Curriculo novoCurriculo = curriculoRequestMapper.apply(request);
-        Optional<Curso> cursoExistente = cursoRepository.findById(idCurso);
+        Optional<Curso> cursoExistente = cursoRepository.getOne(idCurso);
         Curso curso = cursoExistente.get();
         novoCurriculo.setCurso(curso);
         novoCurriculo = curriculoRepository.save(novoCurriculo);
