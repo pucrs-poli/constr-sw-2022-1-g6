@@ -17,4 +17,6 @@ public class DisciplinaRequest {
     private String ementa;
 
     private Integer nivel;
+
+    private Boolean ativa;
 }

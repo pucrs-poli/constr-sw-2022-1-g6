@@ -18,8 +18,14 @@ public class DisciplinaFindAllService {
     @Autowired
     private DisciplinaResponseMapper disciplinaResponseMapper;
 
-    public List<DisciplinaResponse> execute() {
-     List<Disciplina> response = disciplinaRepository.findAll();
+    public List<DisciplinaResponse> execute(boolean onlyActives) {
+        List<Disciplina> response;
+
+        if (onlyActives) {
+            response = disciplinaRepository.findByAtivaTrue();
+        } else {
+            response = disciplinaRepository.findAll();
+        }
 
      return response
          .stream()

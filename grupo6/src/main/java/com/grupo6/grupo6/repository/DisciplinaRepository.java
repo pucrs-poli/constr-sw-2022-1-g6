@@ -9,6 +9,8 @@ import java.util.Optional;
 
 public interface DisciplinaRepository extends Repository<Disciplina, String> {
     List<Disciplina> findAll();
+
+    List<Disciplina> findByAtivaTrue();
     Disciplina save(Disciplina disciplina);
 
     Optional<Disciplina> getOne(String id);

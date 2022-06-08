@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  app:
+    image: api-disciplinas:latest
+    build: ../grupo6
+    ports:
+      - "8080:8080"
+  db:
+    image: 'postgres:latest'
+    container_name: my-postgres

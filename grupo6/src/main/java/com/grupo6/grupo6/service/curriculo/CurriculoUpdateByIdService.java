@@ -4,6 +4,7 @@ import com.grupo6.grupo6.controller.request.CurriculoRequest;
 import com.grupo6.grupo6.controller.response.CurriculoResponse;
 import com.grupo6.grupo6.domain.Curriculo;
 import com.grupo6.grupo6.domain.Curso;
+import com.grupo6.grupo6.mapper.curriculo.CurriculoRequestMapper;
 import com.grupo6.grupo6.mapper.curriculo.CurriculoResponseMapper;
 import com.grupo6.grupo6.repository.CurriculoRepository;
 import com.grupo6.grupo6.repository.CursoRepository;
@@ -25,15 +26,16 @@ public class CurriculoUpdateByIdService {
     private CurriculoResponseMapper curriculoResponseMapper;
 
     @Autowired
-    private ModelMapper modelMapper;
+    private CurriculoRequestMapper curriculoRequestMapper;
 
-    public CurriculoResponse execute(String id_curso, String id_curriculo, CurriculoRequest request) {
-        Curriculo curriculo = modelMapper.map(request, Curriculo.class);
-        Optional<Curso> cursoExistente = cursoRepository.getOne(id_curso);
-        Curso curso = cursoExistente.get();
-        curriculo.setCurso(curso);
-        curriculo.setId(id_curriculo);
-        Curriculo curriculoAtualizada =  curriculoRepository.save(curriculo);
-        return curriculoResponseMapper.apply(curriculoAtualizada);
+    public CurriculoResponse execute(String idCurriculo, CurriculoRequest request) {
+        Curriculo curriculoEncontrado = curriculoRepository.getOne(idCurriculo)
+                .orElse(new Curriculo());
+
+        curriculoEncontrado.setNome(request.getNome());
+
+        curriculoEncontrado = curriculoRepository.save(curriculoEncontrado);
+
+        return curriculoResponseMapper.apply(curriculoEncontrado);
     }
 }
