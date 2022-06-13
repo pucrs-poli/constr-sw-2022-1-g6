@@ -18,8 +18,7 @@ public class CursoFindByIdService {
     private CursoResponseMapper cursoResponseMapper;
 
     public CursoResponse execute(String idCurso) {
-        Optional<Curso> cursoExistente = cursoRepository.getOne(idCurso);
-        Curso curso = cursoExistente.get();
-        return cursoResponseMapper.apply(curso);
+        Curso cursoExistente = cursoRepository.getOne(idCurso).orElse(new Curso());
+        return cursoResponseMapper.apply(cursoExistente);
     }
 }

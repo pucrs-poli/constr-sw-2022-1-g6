@@ -22,7 +22,7 @@ public class DisciplinaParcialUpdateByIdService {
     ModelMapper modelMapper;
 
     public DisciplinaResponse execute(String id, DisciplinaRequest request) {
-        Disciplina disciplinaEncontrada = disciplinaRepository.getOne(id).orElse(new Disciplina());
+        Disciplina disciplinaEncontrada = disciplinaRepository.findById(id).orElse(new Disciplina());
         modelMapper.map(request, disciplinaEncontrada);
         disciplinaEncontrada = disciplinaRepository.save(disciplinaEncontrada);
 

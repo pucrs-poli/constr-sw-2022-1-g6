@@ -25,7 +25,7 @@ public class DisciplinaUpdateByIdService {
     public DisciplinaResponse execute(String id, DisciplinaRequest request) {
         Disciplina disciplina = modelMapper.map(request, Disciplina.class);
         disciplina.setId(id);
-        Disciplina disciplinaAtualizada =  disciplinaRepository.save(disciplina);
+        Disciplina disciplinaAtualizada = disciplinaRepository.save(disciplina);
         return disciplinaResponseMapper.apply(disciplinaAtualizada);
     }
 }

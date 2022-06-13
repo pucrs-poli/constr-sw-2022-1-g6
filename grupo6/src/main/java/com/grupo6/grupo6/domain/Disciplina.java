@@ -34,5 +34,5 @@ public class Disciplina {
     private Integer nivel;
 
     @Column
-    private Boolean ativa = true;
+    private Boolean ativa;
 }

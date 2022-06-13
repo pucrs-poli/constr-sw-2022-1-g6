@@ -1,11 +1,21 @@
-version: '2'
-
 services:
   app:
-    image: api-disciplinas:latest
+    image: disciplinas:latest
     build: ../grupo6
     ports:
       - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
   db:
-    image: 'postgres:latest'
+    image: postgres
+    hostname: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     container_name: my-postgres
+    ports:
+      - "5432:5432"

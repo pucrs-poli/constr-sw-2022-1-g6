@@ -22,6 +22,7 @@ public class DisciplinaCreateService {
 
     public DisciplinaResponse execute(DisciplinaRequest request) {
         Disciplina disciplina = disciplinaRequestMapper.apply(request);
+        disciplina.setAtiva(true);
         disciplina = disciplinaRepository.save(disciplina);
         return disciplinaResponseMapper.apply(disciplina);
     }

@@ -13,5 +13,6 @@ public interface DisciplinaRepository extends Repository<Disciplina, String> {
     List<Disciplina> findByAtivaTrue();
     Disciplina save(Disciplina disciplina);
 
-    Optional<Disciplina> getOne(String id);
+    Optional<Disciplina> getOne(String disciplinaId);
+    Optional<Disciplina> findById(String disciplinaId);
 }

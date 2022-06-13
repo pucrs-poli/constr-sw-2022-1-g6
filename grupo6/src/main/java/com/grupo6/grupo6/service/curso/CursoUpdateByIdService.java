@@ -25,7 +25,7 @@ public class CursoUpdateByIdService {
     public CursoResponse execute(String id, CursoRequest request) {
         Curso curso = modelMapper.map(request, Curso.class);
         curso.setId(id);
-        Curso cursoAtualizada =  cursoRepository.save(curso);
-        return cursoResponseMapper.apply(cursoAtualizada);
+        Curso cursoAtualizado =  cursoRepository.save(curso);
+        return cursoResponseMapper.apply(cursoAtualizado);
     }
 }
